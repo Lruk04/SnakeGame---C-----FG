@@ -5,155 +5,184 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
-#include "Snake/Snake.h"
-#include "Snake/Food.h"
+#include "GameObjects/Snake.h"
+#include "GameObjects/Food.h"
+#include "MainMenu/MainMenu.h"
+
+
 
 bool Game::Init()
 {
+	m_stateMachine = new StateMachine();
+
+	StateMachine::changeState( "Menu");
+
+	
+	
 	// Init snake graphics
 	m_snakeGraphics = new SnakeGraphics(1024, 720, SCREEN_WIDTH, SCREEN_HEIGHT);
 
+	//m_mainMenu = new MainMenu();	
+	
+	//m_snake = new Snake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+
+	//m_snake2 = new Snake(SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3);
+
+	//m_food = new Food(SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	
 	if (!m_snakeGraphics->Init())
 	{
-	
 		std::cerr << "Failed to initilize snake graphics!" << std::endl;
-		
+
 		return false;
 	}
-	
+
 	// Init snake input
 	SnakeInput::Init(m_snakeGraphics);
 
 	SnakeInput::AddKeyDownCallback(std::bind(&Game::KeyDownCallback, this, std::placeholders::_1));
-
-	m_snake = new Snake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-
-	m_snake2 = new Snake(SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3);
-	
-	m_food = new Food(SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-
 	
 	return true;
 }
 
 void Game::KeyDownCallback(int Key)
 {
+	m_stateMachine->keyDown(Key);
+
+	
 	std::cout << Key << std::endl;
 
 	if (Key == 'P')
 	{
-		std::cout << "Pause" << std::endl;
-		std::cout << isPaused << std::endl;
 		isPaused = !isPaused;
 	}
+	if (Key == 'O')
+    {
+		StateMachine::changeState( "Menu");
+
+    }
 	
-	switch (Key)
-	{
-		case 'W': m_snake->ChangeDirection(UP); break;
-		case 'S': m_snake->ChangeDirection(DOWN); break;
-		case 'A': m_snake->ChangeDirection(LEFT); break;
-		case 'D': m_snake->ChangeDirection(RIGHT); break;
-	}
-	switch (Key)
-	{
-		case 38: m_snake2->ChangeDirection(UP); break;
-		case 40: m_snake2->ChangeDirection(DOWN); break;
-		case 37: m_snake2->ChangeDirection(LEFT); break;
-		case 39: m_snake2->ChangeDirection(RIGHT); break;
-	}
+	// switch (Key)
+	// {
+	// 	case 'W': m_snake->ChangeDirection(UP); break;
+	// 	case 'S': m_snake->ChangeDirection(DOWN); break;
+	// 	case 'A': m_snake->ChangeDirection(LEFT); break;
+	// 	case 'D': m_snake->ChangeDirection(RIGHT); break;
+	// }
+	
+	// switch (Key)
+	// {
+	// 	case 38: m_snake2->ChangeDirection(UP); break;
+	// 	case 40: m_snake2->ChangeDirection(DOWN); break;
+	// 	case 37: m_snake2->ChangeDirection(LEFT); break;
+	// 	case 39: m_snake2->ChangeDirection(RIGHT); break;
+	// }
+	
+	// switch (Key)
+	// {
+	// 	case 'N': m_mainMenu->GoUpInMenu(); break;
+	// 	case 'M': m_mainMenu->GoDownInMenu(); break;
+	// 	case 'B': m_mainMenu->SelectOption(); break;
+	// }
+	
 }
 
 void Game::Update()
 {
-	m_snake->Move();
-	m_snake2->Move();
+	m_stateMachine->update();
+	
+	//m_snake->Move();
+	//m_snake2->Move();
 	
 
-	// Check if snake1 collides with the body of snake2
-	for (const auto& part : m_snake2->GetBody())
-	{
-		if (m_snake->GetPosition() == part)
-		{
-			std::cout << "Game Over, you lost!" << std::endl;
-			std::cout << "Little noob" << std::endl;
-			CleanUp();
-			exit(0);
-		}
-	}
-
-	// Check if snake2 collides with the body of snake1
-	for (const auto& part : m_snake->GetBody())
-	{
-		if (m_snake2->GetPosition() == part)
-		{
-			std::cout << "Game Over, you lost!" << std::endl;
-			std::cout << "Little noob" << std::endl;
-			CleanUp();
-			exit(0);
-		}
-	}
+	// // Check if snake1 collides with the body of snake2
+	// for (const auto& part : m_snake2->GetBody())
+	// {
+	// 	if (m_snake->GetPosition() == part)
+	// 	{
+	// 		std::cout << "Game Over, you lost!" << std::endl;
+	// 		std::cout << "Little noob" << std::endl;
+	// 		CleanUp();
+	// 		exit(0);
+	// 	}
+	// }
+	//
+	// // Check if snake2 collides with the body of snake1
+	// for (const auto& part : m_snake->GetBody())
+	// {
+	// 	if (m_snake2->GetPosition() == part)
+	// 	{
+	// 		std::cout << "Game Over, you lost!" << std::endl;
+	// 		std::cout << "Little noob" << std::endl;
+	// 		CleanUp();
+	// 		exit(0);
+	// 	}
+	// }
+	//
+	// // Existing collision checks for walls and self-collision for snake1
+	// // if (m_snake->CheckCollision(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1) || m_snake2->CheckCollision(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1) ||
+	// //    m_snake->CheckCollision(0, 0) || m_snake2->CheckCollision(0, 0))
+	// if (m_snake->CheckCollision(SCREEN_WIDTH, SCREEN_HEIGHT ) || m_snake2->CheckCollision(SCREEN_WIDTH , SCREEN_HEIGHT))
+	// {
+	// 	std::cout << "Game Over, you lost!" << std::endl;
+	// 	std::cout << "Little noob" << std::endl;
+	// 	CleanUp();
+	// 	exit(0);
+	// }
+	//
+	// if (m_snake->CheckSelfCollision() || m_snake2->CheckSelfCollision())
+	// {
+	// 	std::cout << "Game Over, you lost!" << std::endl;
+	// 	std::cout << "Little noob" << std::endl;
+	// 	CleanUp();
+	// 	exit(0);
+	// }
 	
-	// Existing collision checks for walls and self-collision for snake1
-	// if (m_snake->CheckCollision(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1) || m_snake2->CheckCollision(SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1) ||
-	//    m_snake->CheckCollision(0, 0) || m_snake2->CheckCollision(0, 0))
-	if (m_snake->CheckCollision(SCREEN_WIDTH, SCREEN_HEIGHT ) || m_snake2->CheckCollision(SCREEN_WIDTH , SCREEN_HEIGHT))
-	{
-		std::cout << "Game Over, you lost!" << std::endl;
-		std::cout << "Little noob" << std::endl;
-		CleanUp();
-		exit(0);
-	}
-	
-	if (m_snake->CheckSelfCollision() || m_snake2->CheckSelfCollision())
-	{
-		std::cout << "Game Over, you lost!" << std::endl;
-		std::cout << "Little noob" << std::endl;
-		CleanUp();
-		exit(0);
-	}
-	
-	for (auto& foodPosition : m_food->GetPositions())
-	{
-		if (m_snake->GetPosition() == foodPosition) {
-			m_snake->Grow();
-
-		do {
-				foodPosition.first = 1 + rand() % (SCREEN_WIDTH - 2);
-				foodPosition.second = 1 + rand() % (SCREEN_HEIGHT - 2);
-			} while (m_snake->GetPosition() == foodPosition);
-
-			break;
-		}
-
-		if (m_snake2->GetPosition() == foodPosition) {
-			m_snake2->Grow();
-
-			do {
-				foodPosition.first = 1 + rand() % (SCREEN_WIDTH - 2);
-				foodPosition.second = 1 + rand() % (SCREEN_HEIGHT - 2);
-			} while (m_snake2->GetPosition() == foodPosition);
-
-			break;
-		}
-	}
+	// for (auto& foodPosition : m_food->GetPositions())
+	// {
+	// 	if (m_snake->GetPosition() == foodPosition) {
+	// 		m_snake->Grow();
+	//
+	// 	do {
+	// 			foodPosition.first = 1 + rand() % (SCREEN_WIDTH - 2);
+	// 			foodPosition.second = 1 + rand() % (SCREEN_HEIGHT - 2);
+	// 		} while (m_snake->GetPosition() == foodPosition);
+	//
+	// 		break;
+	// 	}
+	//
+	// 	if (m_snake2->GetPosition() == foodPosition) {
+	// 		m_snake2->Grow();
+	//
+	// 		do {
+	// 			foodPosition.first = 1 + rand() % (SCREEN_WIDTH - 2);
+	// 			foodPosition.second = 1 + rand() % (SCREEN_HEIGHT - 2);
+	// 		} while (m_snake2->GetPosition() == foodPosition);
+	//
+	// 		break;
+	// 	}
+	// }
 }
 
 void Game::Render()
 {
+	m_stateMachine->render(m_snakeGraphics);
+	// Render the main menu
+	//m_mainMenu->Render(m_snakeGraphics, 5, 7, 0);
+	
 	// Render the food and snake
-	m_food->Render(m_snakeGraphics);
-	m_snake ->Render(m_snakeGraphics, 0, 255, 0);
-	m_snake2->Render(m_snakeGraphics, 0, 0, 255);
- 
-	// Render the borders, side borders<
+	//m_food->Render(m_snakeGraphics);
+	//m_snake ->Render(m_snakeGraphics, 0, 255, 0);
+	//m_snake2->Render(m_snakeGraphics, 0, 0, 255);
+
+	// Render the borders, top borders
 	for (int x = 0; x < SCREEN_WIDTH; x++)
 	{
 		m_snakeGraphics->PlotTile(x, 0, 0, Color(255, 255,  255), Color(255, 255,  255), ' ');
 		m_snakeGraphics->PlotTile(x, SCREEN_HEIGHT - 1, 0, Color(255, 255,  255), Color(255, 255,  255), ' ');
 	}
 	
-	// Render the borders, top borders
+	// Render the borders, side borders<
 	for (int y = 0; y < SCREEN_HEIGHT; y++)
 	{
 		m_snakeGraphics->PlotTile(0, y, 0, Color( 255, 255,  255), Color(255, 255,  255), ' ');
@@ -180,6 +209,7 @@ void Game::CleanUp()
 	delete m_snake;
 	delete m_snake2;
 	delete m_food;
+	delete m_mainMenu;
 }
 
 void Game::Run()
@@ -232,7 +262,5 @@ void Game::Run()
 			Render();
 		}
 		CleanUp();
-
-	
 	}
 }

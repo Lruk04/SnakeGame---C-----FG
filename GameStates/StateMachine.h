@@ -1,0 +1,37 @@
+#pragma once
+#include <map>
+#include <string>
+
+#include "BaseState.h"
+#include "MenuState.h"
+#include "PlayState.h"
+#include "../GameObjects/Snake.h"
+class SnakeGraphics; // Forward declaration
+class MenuState; // Forward declaration
+class PlayState; // Forward declaration
+
+class StateMachine
+{
+private:
+    static StateMachine* instance; // Static instance
+    
+    MenuState* m_menuState = nullptr;
+    PlayState* m_playState = nullptr;
+    
+    std::map<std::string, BaseState*> m_states;
+    BaseState* m_currentState = nullptr;
+    std::string m_currentStateName;
+public:
+    StateMachine();
+    
+    static void changeState( const std::string& name);
+
+    std::string GetCurrentState();
+    
+    void update() const;
+
+    void render(SnakeGraphics* graphics) const;
+
+    void keyDown(int key) const;
+    
+};

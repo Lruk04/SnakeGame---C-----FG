@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "crtdbg.h"
+#include "GameStates/StateMachine.h"
 
 int main()
 {

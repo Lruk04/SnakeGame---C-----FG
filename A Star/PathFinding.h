@@ -1,6 +1,6 @@
 #pragma once
 #include "Grid.h"
-#include "../Snake/Snake.h"
+#include "../GameObjects/Snake.h"
 
 // Functions that are needed
 // Find Neightbours up, down, left, right, with the oppsite direction being locked
