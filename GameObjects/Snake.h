@@ -33,7 +33,10 @@
 
 class PlayState;
 
-enum Direction { UP, DOWN, LEFT, RIGHT };
+enum Direction
+{
+    UP = 1, DOWN = -1, LEFT = -2, RIGHT = 2
+};
 
 class Snake : public GameObject {
 private:

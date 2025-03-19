@@ -125,6 +125,7 @@
 // }
 
 #include "PlayState.h"
+
 #include "../stdafx.h"
 #include <iostream>
 #include "../GameObjects/Snake.h"
@@ -136,7 +137,8 @@ bool PlayState::Init()
     new Snake(this, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0, 255, 0);
 
     m_food = new Food(SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-    
+
+
     return true;
 }
 

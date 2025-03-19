@@ -201,11 +201,15 @@ bool Snake::CheckSelfCollision()
 void Snake::ChangeDirection(Direction newDirection)
 {
     // Check if the new direction is valid, if it is, change the direction
+    // if (!directionChanged &&
+    //     ((direction == UP && newDirection != DOWN) ||
+    //     (direction == DOWN && newDirection != UP) ||
+    //     (direction == LEFT && newDirection != RIGHT) ||
+    //     (direction == RIGHT && newDirection != LEFT)))
+
+
     if (!directionChanged &&
-        ((direction == UP && newDirection != DOWN) ||
-        (direction == DOWN && newDirection != UP) ||
-        (direction == LEFT && newDirection != RIGHT) ||
-        (direction == RIGHT && newDirection != LEFT)))
+        (direction + newDirection) != 0)
     {
         direction = newDirection;
         directionChanged = true;
@@ -231,7 +235,7 @@ void Snake::Render(SnakeGraphics* graphics)
     for (const auto& part : body)
     {
         graphics->PlotTile(part.first, part.second, 0, Color(color, color2, color3), Color(0, 255, 0),' ');
-        std::cout << "Snake Render" << std::endl;
+     
     }
 }
 
