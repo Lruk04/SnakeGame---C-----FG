@@ -129,13 +129,15 @@
   <ItemGroup>
     <ClInclude Include="A Star\Grid.h" />
     <ClInclude Include="A Star\PathFinding.h" />
+    <ClInclude Include="Agents\AIAgent.h" />
+    <ClInclude Include="Agents\BaseAgent.h" />
+    <ClInclude Include="Agents\PlayerAgent.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObjects\GameObject.h" />
     <ClInclude Include="GameStates\BaseState.h" />
     <ClInclude Include="GameStates\MenuState.h" />
     <ClInclude Include="GameStates\PlayState.h" />
     <ClInclude Include="GameStates\StateMachine.h" />
-    <ClInclude Include="MainMenu\MainMenu.h" />
     <ClInclude Include="GameObjects\Food.h" />
     <ClInclude Include="GameObjects\Snake.h" />
     <ClInclude Include="stdafx.h" />
@@ -145,13 +147,14 @@
   <ItemGroup>
     <ClCompile Include="A Star\Grid.cpp" />
     <ClCompile Include="A Star\PathFinding.cpp" />
+    <ClCompile Include="Agents\AIAgent.cpp" />
+    <ClCompile Include="Agents\PlayerAgent.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjects\GameObject.cpp" />
     <ClCompile Include="GameStates\MenuState.cpp" />
     <ClCompile Include="GameStates\PlayState.cpp" />
     <ClCompile Include="GameStates\StateMachine.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MainMenu\MainMenu.cpp" />
     <ClCompile Include="GameObjects\Food.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>

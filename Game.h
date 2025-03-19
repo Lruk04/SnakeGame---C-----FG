@@ -1,45 +1,50 @@
 #pragma once
 #include <string>
 
-#include "MainMenu/MainMenu.h"
+
 #include "GameObjects/Snake.h"
 #include "GameObjects/Food.h"
 #include "GameStates/StateMachine.h"
 
+class StateMachine;
+class Snake;
+class GameObject;
+
 class Game
 {
-private:
-	const int FPS = 60;
+    static Game* instance;
 
-	bool isPaused;
-	
-	MainMenu* m_mainMenu = nullptr;
-	
-	SnakeGraphics* m_snakeGraphics = nullptr;
+    
+    const int FPS = 60;
 
-	Snake* m_snake = nullptr;
-	
-	Snake* m_snake2 = nullptr;
-	
-	Food* m_food = nullptr;
+    float m_deltaTime = 0.0f;
+    
+    bool isPaused;
 
-	StateMachine* m_stateMachine = nullptr;
-	
-	float m_deltaTime = 0.0f;
+    std::vector<GameObject*> m_gameObjects;
 
-	bool Init();
+    std::vector<GameObject*> m_newGameObjects;
 
-	void Update();
 
-	void Render();
+    SnakeGraphics* m_snakeGraphics = nullptr;
+    
+    StateMachine* m_stateMachine = nullptr;
+    
 
-	//void CleanUp();
+    bool Init();
 
-	void KeyDownCallback(int Key);
+    void Update();
+
+    void Render();
+
+    void CleanUp();
+
+    void KeyDownCallback(int Key);
 
 public:
+    static Game* getInstance();
+    
+    void Run();
 
-	void CleanUp();
-	void Run();
+    void AddGameObject(GameObject* gameObject);
 };
-

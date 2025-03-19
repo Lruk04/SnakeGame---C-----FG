@@ -1,7 +1,7 @@
 #pragma once
 #include "../Tools/SnakeGraphics.h"
 
-class Food
+class Food 
 {
 private:
     int width, height;
@@ -11,5 +11,4 @@ public:
     void Generate();
     void Render(SnakeGraphics* graphics);
     std::vector<std::pair<int, int>>& GetPositions();
-        
 };

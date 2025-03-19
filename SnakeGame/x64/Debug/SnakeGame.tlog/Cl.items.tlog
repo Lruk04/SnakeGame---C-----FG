@@ -1,13 +1,12 @@
-C:\Users\Hem\Desktop\C# Script\SnakeGame\A Star\Grid.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\Grid.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\A Star\PathFinding.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\PathFinding.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\Game.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\Game.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\GameObjects\GameObject.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\GameObject.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\GameStates\MenuState.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\MenuState.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\GameStates\PlayState.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\PlayState.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\GameStates\StateMachine.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\StateMachine.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\Main.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\Main.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\MainMenu\MainMenu.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\MainMenu.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\GameObjects\Food.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\Food.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\GameObjects\Snake.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\Snake.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\Tools\SnakeGraphics.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\SnakeGraphics.obj
-C:\Users\Hem\Desktop\C# Script\SnakeGame\Tools\SnakeInput.cpp;C:\Users\Hem\Desktop\C# Script\SnakeGame\SnakeGame\x64\Debug\SnakeInput.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\A Star\Grid.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\Grid.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\A Star\PathFinding.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\PathFinding.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\Game.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\Game.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\GameObjects\GameObject.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\GameObject.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\GameStates\MenuState.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\MenuState.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\GameStates\PlayState.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\PlayState.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\GameStates\StateMachine.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\StateMachine.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\Main.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\Main.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\GameObjects\Food.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\Food.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\GameObjects\Snake.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\Snake.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\Tools\SnakeGraphics.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\SnakeGraphics.obj
+C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\Tools\SnakeInput.cpp;C:\Users\LorikFejzullahu\Desktop\C+´+ projects\SnakeGame---C-----FG-main\SnakeGame\x64\Debug\SnakeInput.obj

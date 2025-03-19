@@ -10,9 +10,11 @@ StateMachine::StateMachine()
     
     m_states["Menu"] = m_menuState;
     m_states["Play"] = m_playState;
-
-    instance = this; // Set the static instance
+    
+    instance = this; 
 }
+
+
 
 void StateMachine::changeState(const std::string& name)
 {
@@ -33,31 +35,11 @@ void StateMachine::changeState(const std::string& name)
     }
     else
     {
-        std::cerr << "State " << name << " not found!" << std::endl;
+        std::cerr << "State " << name << " not found! \n" << std::endl;
+    
     }
 }
-// void StateMachine::changeState(const std::string& name)
-// {
-//     if (m_currentState != nullptr)
-//     {
-//         m_currentState->CleanUp();
-//     }
-//
-//     auto it = m_states.find(name);
-//     if (it != m_states.end())
-//     {
-//         m_currentState = it->second;
-//         m_currentStateName = name;
-//         if (m_currentState != nullptr)
-//         {
-//             m_currentState->Init();
-//         }
-//     }
-//     else
-//     {
-//         std::cerr << "State " << name << " not found!" << std::endl;
-//     }
-// }
+
 
 void StateMachine::update() const
 {

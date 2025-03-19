@@ -1,8 +1,8 @@
 #pragma once
-#include <string>
-
+#include "../stdafx.h"
 #include "BaseState.h"
 #include "StateMachine.h"
+
 
 
 class MenuState : public BaseState
@@ -10,7 +10,7 @@ class MenuState : public BaseState
 
 private:
 	int selectedOption = 0;
-	int xPos = 7;
+	int xPos = 15;
 	int yPos = 5;
 	int spaceInBetween = 0;
 	

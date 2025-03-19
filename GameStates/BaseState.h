@@ -1,6 +1,10 @@
 #pragma once
 #include "../Tools/SnakeGraphics.h"
 
+
+class Snake;
+class Food;
+
 class BaseState
 {
 private:

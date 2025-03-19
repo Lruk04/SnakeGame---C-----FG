@@ -1,19 +1,20 @@
 #include "GameObject.h"
 
 
-void GameObject::Render(SnakeGraphics* graphics) 
+GameObject::GameObject(PlayState* game) : m_game(game)
 {
-    
+    m_game->AddGameObject(this);
 }
 
-void GameObject::Update()
+bool GameObject::IsDestroyed() const
 {
-    
+    return m_bDestroyed;
 }
 
 void GameObject::Destroy()
 {
-    GameObject* obj = new GameObject();
-    delete obj;
+    DestroyDerived();
+
+    m_bDestroyed = true;
 }
 

@@ -6,14 +6,14 @@
 #include "MenuState.h"
 #include "PlayState.h"
 #include "../GameObjects/Snake.h"
-class SnakeGraphics; // Forward declaration
-class MenuState; // Forward declaration
-class PlayState; // Forward declaration
+
+class MenuState; 
+class PlayState;
 
 class StateMachine
 {
 private:
-    static StateMachine* instance; // Static instance
+    static StateMachine* instance;
     
     MenuState* m_menuState = nullptr;
     PlayState* m_playState = nullptr;
@@ -23,6 +23,7 @@ private:
     std::string m_currentStateName;
 public:
     StateMachine();
+    
     
     static void changeState( const std::string& name);
 
