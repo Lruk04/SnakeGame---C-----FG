@@ -1,7 +1,9 @@
 #include "GameObject.h"
 
 
-GameObject::GameObject(PlayState* game) : m_game(game)
+class World;
+
+GameObject::GameObject(World* game) : m_game(game)
 {
     m_game->AddGameObject(this);
 }

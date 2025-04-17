@@ -8,11 +8,19 @@ class PlayerAgent : public BaseAgent
 
     int m_keyboardLayoutId;
 
+    Direction nextDirection = Direction::NONE;
+
+    Direction direction = Direction::RIGHT;
+
+    bool directionChanged = false;
+
 public:
-    PlayerAgent(int keyboardLayoutId);
+    PlayerAgent(int keyboardLayoutId, int id);
 
     Direction GetNextDirection() override;
 
     void KeyDown(int Key) override;
+
+    int GetKeyboardLayoutId() const;
 };
 

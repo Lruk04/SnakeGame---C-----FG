@@ -1,56 +1,34 @@
 #pragma once
-
-
-
-// class PlayState : public BaseState
-// {
-// private:
-//     Snake* m_snake = nullptr;
-//     Snake* m_snake2 = nullptr;
-//     Food* m_food = nullptr;
-//
-//     std::vector<GameObject*> m_gameObjects;
-//
-//     std::vector<GameObject*> m_newGameObjects;
-//     
-// public:
-//     bool Init() override;
-//
-//     void Render(SnakeGraphics* graphics) override;
-//
-//     void Update() override;
-//
-//     void KeyDown(int Key) override;
-//
-//     void CleanUp() override;
-//
-//     void AddGameObject(GameObject* gameObject);
-// };
-//
-
-#pragma once
+#include <fstream>
 #include <vector>
 #include "BaseState.h"
+#include "../World.h"
+#include "../A Star/Grid.h"
 
+class BaseAgent;
 class GameObject;
 class Snake;
 class Food;
 
 
+
 class PlayState : public BaseState {
 private:
-    Snake* m_snake = nullptr;
-    Snake* m_snake2 = nullptr;
-    Food* m_food = nullptr;
+    World* m_world = nullptr;
 
-    std::vector<GameObject*> m_gameObjects;
-    std::vector<GameObject*> m_newGameObjects;
+
+    
 
 public:
+    PlayState(StateMachine* stateMachine);
+    ~PlayState() override;
+    
     bool Init() override;
     void Render(SnakeGraphics* graphics) override;
     void Update() override;
     void KeyDown(int Key) override;
     void CleanUp() override;
-    void AddGameObject(GameObject* gameObject);
+
+
+   
 };

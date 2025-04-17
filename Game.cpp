@@ -15,7 +15,6 @@ bool Game::Init()
 
 	StateMachine::changeState( "Menu");
 	
-	// Init snake graphics
 	m_snakeGraphics = new SnakeGraphics(1024, 720, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	if (!m_snakeGraphics->Init())
@@ -24,8 +23,7 @@ bool Game::Init()
 
 		return false;
 	}
-
-	// Init snake input
+	
 	SnakeInput::Init(m_snakeGraphics);
 
 	SnakeInput::AddKeyDownCallback(std::bind(&Game::KeyDownCallback, this, std::placeholders::_1));
@@ -52,7 +50,7 @@ void Game::KeyDownCallback(int Key)
 void Game::Update()
 {
 	m_stateMachine->update();
-
+	
 
 }
 
@@ -60,21 +58,22 @@ void Game::Render()
 {
 	m_stateMachine->render(m_snakeGraphics);
 
-
 	
-	// Render the borders, top borders
-	for (int x = 0; x < SCREEN_WIDTH; x++)
-	{
-		m_snakeGraphics->PlotTile(x, 0, 0, Color(255, 255,  255), Color(255, 255,  255), ' ');
-		m_snakeGraphics->PlotTile(x, SCREEN_HEIGHT - 1, 0, Color(255, 255,  255), Color(255, 255,  255), ' ');
-	}
 	
-	// Render the borders, side borders<
-	for (int y = 0; y < SCREEN_HEIGHT; y++)
-	{
-		m_snakeGraphics->PlotTile(0, y, 0, Color( 255, 255,  255), Color(255, 255,  255), ' ');
-		m_snakeGraphics->PlotTile(SCREEN_WIDTH - 1, y, 0, Color(255, 255,  255), Color(255, 255,  255), ' ');
-	}
+	
+	// // Render the borders, top borders
+	// for (int x = 0; x < SCREEN_WIDTH; x++)
+	// {
+	// 	m_snakeGraphics->PlotTile(x, 0, 0, Color(255, 255,  255), Color(255, 255,  255), ' ');
+	// 	m_snakeGraphics->PlotTile(x, SCREEN_HEIGHT - 1, 0, Color(255, 255,  255), Color(255, 255,  255), ' ');
+	// }
+	//
+	// // Render the borders, side borders<
+	// for (int y = 0; y < SCREEN_HEIGHT; y++)
+	// {
+	// 	m_snakeGraphics->PlotTile(0, y, 0, Color( 255, 255,  255), Color(255, 255,  255), ' ');
+	// 	m_snakeGraphics->PlotTile(SCREEN_WIDTH - 1, y, 0, Color(255, 255,  255), Color(255, 255,  255), ' ');
+	// }
 
 
 	// Clear the screen to black, makes sure snake path gets cleared

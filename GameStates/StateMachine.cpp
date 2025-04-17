@@ -5,16 +5,16 @@ StateMachine* StateMachine::instance = nullptr;
 
 StateMachine::StateMachine()
 {
-    m_menuState = new MenuState();
-    m_playState = new PlayState();
+    m_menuState = new MenuState(this);
+    m_playState = new PlayState(this);
+    m_optionState = new OptionState(this);
     
     m_states["Menu"] = m_menuState;
     m_states["Play"] = m_playState;
+    m_states["Options"] = m_optionState;
     
     instance = this; 
 }
-
-
 
 void StateMachine::changeState(const std::string& name)
 {
@@ -36,6 +36,8 @@ void StateMachine::changeState(const std::string& name)
     else
     {
         std::cerr << "State " << name << " not found! \n" << std::endl;
+
+        
     
     }
 }

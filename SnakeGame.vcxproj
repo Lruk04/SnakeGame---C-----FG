@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,13 +137,16 @@
     <ClInclude Include="GameObjects\GameObject.h" />
     <ClInclude Include="GameStates\BaseState.h" />
     <ClInclude Include="GameStates\MenuState.h" />
+    <ClInclude Include="GameStates\OptionState.h" />
     <ClInclude Include="GameStates\PlayState.h" />
     <ClInclude Include="GameStates\StateMachine.h" />
     <ClInclude Include="GameObjects\Food.h" />
     <ClInclude Include="GameObjects\Snake.h" />
+    <ClInclude Include="ScoreSystem.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tools\SnakeGraphics.h" />
     <ClInclude Include="Tools\SnakeInput.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="A Star\Grid.cpp" />
@@ -152,6 +156,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjects\GameObject.cpp" />
     <ClCompile Include="GameStates\MenuState.cpp" />
+    <ClCompile Include="GameStates\OptionState.cpp" />
     <ClCompile Include="GameStates\PlayState.cpp" />
     <ClCompile Include="GameStates\StateMachine.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -305,11 +310,13 @@
       <SDLCheck>true</SDLCheck>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="ScoreSystem.cpp" />
     <ClCompile Include="Tools\SnakeGraphics.cpp" />
     <ClCompile Include="Tools\SnakeInput.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CMakeLists.txt" />
+    <Content Include="Levels\exampleLevel.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

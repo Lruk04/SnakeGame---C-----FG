@@ -1,7 +1,7 @@
 #include "Food.h"
 #include <ctime>
 
-Food::Food(int width, int height, int count) : width(width), height(height)
+Food::Food(World* game,int width, int height, int count) : GameObject(game), width(width), height(height)
 {
     std::srand(std::time(nullptr));
     positions.resize(count);
@@ -12,8 +12,15 @@ void Food::Generate()
 {
     for (auto& position : positions)
     {
-        position.first = 1 + rand() % (width - 2); 
-        position.second = 1 + rand() % (height - 2); 
+        Tile& randomTile = World::grid->GetRandomUnoccupiedTile();
+
+        World::grid->SetTileFood(randomTile.GetX(), randomTile.GetY(),true);
+        
+        position.first = randomTile.GetX();
+        position.second = randomTile.GetY();
+        
+        // position.first = 1 + rand() % (width - 2); 
+        // position.second = 1 + rand() % (height - 2); 
     }
 }
 

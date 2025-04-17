@@ -8,15 +8,18 @@
 #define GET_OPTIONTEXT(i) { i == selectedOption ? L">>OPTIONS<<" : L"OPTIONS"}
 #define GET_EXITTEXT(i) { i == selectedOption ? L">>EXIT<<" : L"EXIT"}
 
+
+MenuState::MenuState(StateMachine* stateMachine) : BaseState(stateMachine)
+{
+}
+
 bool MenuState::Init()
 {
-    
     return true;
 }
 
 void MenuState::Render(SnakeGraphics* graphics)
 {
-
     //WHEN I IDIOT
     // Render the main menu
     // Play
@@ -48,16 +51,17 @@ void MenuState::Render(SnakeGraphics* graphics)
     // }
 
     // WHEN I NOT IDIOT
-    
-    graphics->PlotText(SCREEN_WIDTH/2, yPos + 0 + spaceInBetween, 0, Color(255, 255,  255), GET_PLAYTEXT(0), GET_COLOR (0), graphics->Center );
-    graphics->PlotText(SCREEN_WIDTH/2, yPos + 1 + spaceInBetween, 0, Color(255, 255,  255), GET_OPTIONTEXT(1), GET_COLOR (1), graphics->Center );
-    graphics->PlotText(SCREEN_WIDTH/2, yPos + 2 + spaceInBetween, 0, Color(255, 255,  255), GET_EXITTEXT(2), GET_COLOR (2), graphics->Center );
 
+    graphics->PlotText(SCREEN_WIDTH / 2, yPos + 0 + spaceInBetween, 0, Color(255, 255, 255), GET_PLAYTEXT(0),
+                       GET_COLOR(0), graphics->Center);
+    graphics->PlotText(SCREEN_WIDTH / 2, yPos + 1 + spaceInBetween, 0, Color(255, 255, 255), GET_OPTIONTEXT(1),
+                       GET_COLOR(1), graphics->Center);
+    graphics->PlotText(SCREEN_WIDTH / 2, yPos + 2 + spaceInBetween, 0, Color(255, 255, 255), GET_EXITTEXT(2),
+                       GET_COLOR(2), graphics->Center);
 }
 
 void MenuState::Update()
 {
-    
 }
 
 void MenuState::KeyDown(int Key)
@@ -68,7 +72,7 @@ void MenuState::KeyDown(int Key)
     {
         selectedOption--;
     }
-    if (Key == 40 && Mainmenu.size()- 1 > selectedOption)
+    if (Key == 40 && Mainmenu.size() - 1 > selectedOption)
     {
         selectedOption++;
     }
@@ -76,14 +80,14 @@ void MenuState::KeyDown(int Key)
     {
         switch (selectedOption)
         {
-        case 0: 
-            StateMachine::changeState( "Play");
+        case 0:
+            StateMachine::changeState("Play");
             break;
         case 1:
-            StateMachine::changeState( "Options");
+            StateMachine::changeState("Options");
             break;
         case 2:
-           exit(0);
+            exit(0);
             break;
         default: break;
         }
@@ -92,8 +96,4 @@ void MenuState::KeyDown(int Key)
 
 void MenuState::CleanUp()
 {
-    
 }
-
-
-
